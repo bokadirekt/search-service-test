@@ -1,0 +1,82 @@
+########################
+# Ignore Visual Studio
+########################
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+########################
+# Ignore Build Results
+########################
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+*.log
+*.tlog
+*.cache
+*.dbmdl
+*.db
+*.pdb
+*.ilk
+
+########################
+# Ignore ReSharper + Rider
+########################
+.idea/
+*.DotSettings.user
+_ReSharper*/
+*.sln.iml
+
+########################
+# Ignore Test Results
+########################
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+########################
+# Ignore Publish Artifacts
+########################
+*.publishsettings
+publish/
+
+########################
+# Ignore Package Management
+########################
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.vsix
+project.lock.json
+project.fragment.lock.json
+
+########################
+# Ignore VS Code
+########################
+.vscode/
+.history/
+
+########################
+# OS/Editor Artifacts
+########################
+*.DS_Store
+*.swp
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+########################
+# Ignore by file type
+########################
+*.tmp
+*.bak
+*.old
+*.orig
+*.log
+*.sqlite
