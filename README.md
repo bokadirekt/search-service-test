@@ -18,6 +18,7 @@ This project uses uv
 
 * To run the project, use `uv run main.py` which uses port 8123 on localhost
 * To access the endpoint, please go to `localhost:8123/docs` where you can find the "service" endpoint
+To run the tests, please use `uv run python -m unittest tests/test_service_processor.py`
 
 ### Executing program
 
@@ -36,7 +37,6 @@ This project uses uv
 ## Authors
 
 Mohammed Bakheet
-
 
 ## Acknowledgments
 
