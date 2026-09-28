@@ -10,6 +10,9 @@ It should support two operations:
 
 The service can communicate over HTTP or standard input/output. Language, framework and storage are up to you.
 
+**It must run straight after cloning**
+Only the language runtime and its standard package install (e.g. npm install, pip install -r requirements.txt) may be required. No Docker, databases or other external services. In-memory or embedded storage (a file, SQLite) is fine.
+
 ## How we want you to work
 We expect you to use AI tools (Claude Code, Cursor, Copilot, ChatGPT, whatever you normally use) as much as you like. That is how we work every day.
 
