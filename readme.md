@@ -1,94 +1,49 @@
-# Search service
+# Booking service
 
 ## Description
-The goal of this service is to behave like a search engine for services. <br>
-It should accept user inputs and return results that matched the provided service name.<br>
-How well the result has to match the input is left to the implementor to decide.
+Build a small service that lets a consumer **find** a bookable service near them and **book** a time.
 
-For this exercise the service can communicate over http requests or the standard input/output.
+It should support two operations:
 
-### General info
-Our goal with this exercise is to see how you approach writing code. <br>
-The specific implementations of scoring/filtering data is not the most important part. <br>
-Using 3rd party libraries and packages are okay, but make sure we can see who you are as a coder. <br>
-Try to not spend more than 2 hours on the exercise.
+1. **Search** – given a service name, a location and a date range, return matching services together with available time slots.
+2. **Book** – given a slot from the search result, create a booking.
 
-### Data
-Data can be read from the file "data.json" (located in root in this repository)
+The service can communicate over HTTP or standard input/output. Language, framework and storage are up to you.
 
-Example data:
-```
-[
-    {
-        "id": 1,
-        "name": "Massage",
-        "position": {
-            "lat": 59.3166428,
-            "lng": 18.0561182999999
-        }
-    },
-    {
-        "id": 2,
-        "name": "Salongens massage",
-        "position": {
-            "lat": 59.3320299,
-            "lng": 18.023149800000056
-        }
-    }
-]
-```
+## How we want you to work
+We expect you to use AI tools (Claude Code, Cursor, Copilot, ChatGPT, whatever you normally use) as much as you like. That is how we work every day.
 
-### Input
-The service should have the following input paramters
-* Service name
-* Geolocation
+What we are interested in is *your* judgment: how you frame the problem, which decisions you make, how you verify what the AI produces, and what you choose not to build.
 
+The spec below is intentionally incomplete. Where something is unclear, make a decision, write it down and move on. There is no hidden "correct" answer.
 
-### Output
-The output should be in JSON.
+**Timebox: max 2 hours.** Tell us what you cut and why.
 
-It should have the following properties:
-* TotalHits
-* TotalDocuments
-* Results
+## Data
+Read from `data.json` in the root of this repository. It contains venues, services, staff and existing bookings. Treat it as real production data.
 
-Where Results should be an array of objects with properties
-* Id
-* Name
-* Position
-* Score
-* Distance
+## Input
+**Search**
+* Service name (free text)
+* Geolocation (lat/lng)
+* Date range
 
-The Results should be list of services that matched the service name that was inputted. <br>
-The Score should be how well the service name matched according to a metric of your choice. <br>
-The Distance should be how far away the result item is from the provided location.
+**Book**
+* A slot returned by search
+* Customer name
 
-Example output:
-```
-{
-    "totalHits": 2,
-    "totalDocuments": 10,
-    "results": [
-        {
-            "id": 9,
-            "name": "Massage",
-            "position": {
-                "lat": 59.40411099999999,
-                "lng": 18.109118499999962
-            },
-            "distance": "8.95km",
-            "score": 0
-        },
-        {
-            "id": 3,
-            "name": "Massör",
-            "position": {
-                "lat": 59.315887,
-                "lng": 18.081163800000013
-            },
-            "distance": "100m",
-            "score": 3
-        }
-    ]
-}
-```
+## Output
+JSON. Search results should at least include the venue, the service, the distance and available slots. Design the rest of the format yourself.
+
+Booking should return the created booking, or a clear error.
+
+## Deliverables
+1. **Code** in a git repo (share a link or zip). Keep the commit history.
+2. **Tests** for the parts you consider most important.
+3. **`DECISIONS.md`** (max 1 page)
+   * Assumptions you made and why
+   * Trade-offs, and what you would change at 100x the data or traffic
+   * What you cut
+4. **`AI.md`**
+   * Which tools you used and for what
+   * 2–3 places where you corrected, rejected or overrode the AI's output, and why
